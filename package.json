@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "workspaces": [
+    "frontend-user",
+    "frontend-admin"
+  ],
+  "name": "cms-monorepo",
+  "version": "1.0.0"
+}
