@@ -30,4 +30,4 @@ The applications will be available at:
 ## Environment variables
 
 - Backend uses `DB_DSN` for MySQL connection.
-- Frontends use `NEXT_PUBLIC_API_URL` to reach the API (`http://backend-api:8080` inside Docker).
+- Frontends use `NEXT_PUBLIC_API_URL` to reach the API (`http://localhost:8080` inside Docker).
