@@ -36,9 +36,16 @@ func main() {
 	}
 	db.AutoMigrate(&models.Post{})
 
-	r := gin.Default()
+	r := gin.New()
+	r.Use(gin.LoggerWithConfig(gin.LoggerConfig{
+		SkipPaths: []string{"/.well-known/appspecific/com.chrome.devtools.json"},
+	}), gin.Recovery())
 	r.Use(CORSMiddleware())
 	routes.RegisterRoutes(r, db)
+
+	r.GET("/.well-known/appspecific/com.chrome.devtools.json", func(c *gin.Context) {
+		c.Status(200)
+	})
 
 	r.Run(":8080")
 }
