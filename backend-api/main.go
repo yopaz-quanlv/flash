@@ -38,7 +38,10 @@ func main() {
 
 	r := gin.New()
 	r.Use(gin.LoggerWithConfig(gin.LoggerConfig{
-		SkipPaths: []string{"/.well-known/appspecific/com.chrome.devtools.json"},
+		SkipPaths: []string{
+			"/.well-known/appspecific/com.chrome.devtools.json",
+			"/favicon.ico",
+		},
 	}), gin.Recovery())
 	r.Use(CORSMiddleware())
 	routes.RegisterRoutes(r, db)
